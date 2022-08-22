@@ -1,3 +1,9 @@
+const WorkshopText = name => `version=1
+title=${name}
+description=Private server modpack 
+tags=
+visibility=unlisted`
+
 const fs = require('fs-extra')
 const path = require('path');
 
@@ -19,6 +25,7 @@ try {
     // Makes a new mod from the ModTemplate
     fs.copySync(modTemplatePath, outputRootPath, { overwrite: false })
     fs.rmSync(path.join(outputRootPath, 'Contents/mods/ModTemplate'), { force: true, recursive: true })
+    fs.writeFile(path.join(modTemplatePath, 'workshop.txt'), WorkshopText(name), 'utf8');
 } catch (error) {
     // No thanks
 }
