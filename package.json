@@ -1,0 +1,14 @@
+{
+  "name": "zomboid-modpack-tool",
+  "version": "0.0.1",
+  "description": "Tool to help with zomboid modpacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MassimoMx",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  }
+}
