@@ -2,21 +2,14 @@ const fs = require('fs-extra')
 const path = require('path');
 
 const ARGS = process.argv.slice(2);
-
 const configPath = ARGS[0]
 
-// Get content from file
 const jsonRaw = fs.readFileSync(configPath);
-// Define to JSON type
 // Run in the collections page
 // Array.from(document.querySelectorAll('.collectionItemDetails')).map(x => x.children[0].href.split('/?id=').last())
 const configContent = JSON.parse(jsonRaw);
 
 const { steamWorkshopPath, items, localWorkshopPath, name } = configContent
-
-// const localWorkshopModPackPath = path.join(localWorkshopPath, name)
-
-// const localWorkshopModPackModsPath = path.join(localWorkshopModPackPath, "Contents/mods");
 
 const modTemplatePath = path.join(localWorkshopPath, "ModTemplate")
 const outputRootPath = path.join(localWorkshopPath, name)
