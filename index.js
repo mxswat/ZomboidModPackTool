@@ -41,8 +41,8 @@ items.forEach(id => {
         console.log(`Copying From ${inPath} to ${outPath}`)
         fs.copySync(inPath, outPath, { recursive: true, overwrite: true })
         const modInfo = fs.readFileSync(path.join(inPath, 'mod.info'), 'utf8')
-        let modInfoNew = modInfo.replace(/(name=)(.*)/g, '$1!!$2')
-        // modInfoNew = modInfoNew.replace(/(id=)(.*)/g, '$1!!$2')
+        let modInfoNew = modInfo.replace(/(name=)(.*)/g, `$1!${name}$2`)
+        modInfoNew = modInfoNew.replace(/(id=)(.*)/g, `$1!${name}$2`)
         fs.writeFileSync(path.join(outPath, 'mod.info'), modInfoNew)
     })
 });
